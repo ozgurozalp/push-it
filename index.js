@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.use(bodyParser.json());
 
 webpush.setVapidDetails(
-	'mailto:mail@ozgurozalp.com',
+	'mailto:mail@ozgurozalp.comi',
 	KEYS.publicKey,
 	KEYS.privateKey
 );
@@ -37,7 +37,7 @@ app.post('/subscribe', (req, res) => {
 		.catch((err) => console.error(err));
 });
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
 	console.log(`server started on ${port}`);
 });
